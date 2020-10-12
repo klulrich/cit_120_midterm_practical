@@ -1,28 +1,62 @@
-var dragon = 10
-var fire = 3
-var ice = 1
-var poison = 4
+var resultEle = document.body.querySelector(".result");
 
-function dragonSlayer(name, health){
-  var ele = document.createElement("div");
-  ele.innerHTML=name+" — "+health;
+var list = [
+  {
+    name: "Harry",
+    age: 25
+  },
+  {
+    name: "Larry",
+    age: 15
+  },
+  {
+    name: "Bert",
+    age: 45
+  },
+  {
+    name: "Jerry",
+    age: 35
+  },
+  {
+    name: "Berry",
+    age: 5
+  },
+  {
+    name: "Bart",
+    age: 55
+  }
+];
+
+for (var i=0; i<list.length; i++){
+  if(list[i].age>0){
+    var personEle = document.createElement("div");
+    personEle.innerHTML=list[i].name;
+    resultEle.appendChild(personEle);
+  }
+  if(list[i].age>40){
+    personEle.style.color="red";
+  }else{
+    personEle.style.color="black";
+  }
+}
+
+// function incrementValue(){
+//     var value = parseInt(document.getElementById('number').value, 10);
+//     value = isNaN(value) ? 0 : value;
+//     value++;
+//     document.getElementById('number').value = value;
+// }
+
+function counter(number){
+  var ele = document.createElement("span");
+  ele.innerHTML=number;
   document.body.appendChild(ele);
 }
 
 for(var i=0; i<1; i++){
-  dragonSlayer("Dragon", dragon);
+  counter("0"+" ");
 }
 
-document.body.querySelector(".Fbutton").addEventListener("click", function(){
-dragonSlayer("Dragon", dragon=dragon-fire+1);
+document.body.querySelector(".cButton").addEventListener("click", function(){
+counter(i+++" ");
 })
-document.body.querySelector(".Ibutton").addEventListener("click", function(){
-dragonSlayer("Dragon", dragon=dragon-ice-1);
-})
-document.body.querySelector(".Pbutton").addEventListener("click", function(){
-dragonSlayer("Dragon", dragon=dragon-poison);
-})
-
-if(0>=dragon){
-  document.body.querySelector(".win").innerHTML="PLAYER WINS!";
-}
